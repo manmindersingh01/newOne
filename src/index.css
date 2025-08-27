@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary - Dark blue from #2c3e50 */
+  --primary: 210 30% 25%;
+  --primary-foreground: 0 0% 100%;
+  --primary-50: 210 30% 98%;
+  --primary-100: 210 30% 94%;
+  --primary-200: 210 30% 90%;
+  --primary-300: 210 30% 80%;
+  --primary-400: 210 30% 60%;
+  --primary-500: 210 30% 40%;
+  --primary-600: 210 30% 30%;
+  --primary-700: 210 30% 25%;
+  --primary-800: 210 30% 20%;
+  --primary-900: 210 30% 15%;
+  
+  /* Secondary - Light blue from #3498db */
+  --secondary: 204 70% 53%;
+  --secondary-foreground: 0 0% 100%;
+  --secondary-50: 204 70% 98%;
+  --secondary-100: 204 70% 94%;
+  --secondary-200: 204 70% 90%;
+  --secondary-300: 204 70% 80%;
+  --secondary-400: 204 70% 70%;
+  --secondary-500: 204 70% 53%;
+  --secondary-600: 204 70% 43%;
+  --secondary-700: 204 70% 33%;
+  --secondary-800: 204 70% 23%;
+  --secondary-900: 204 70% 13%;
+  
+  /* Accent - Green from #27ae60 */
+  --accent: 145 65% 42%;
+  --accent-foreground: 0 0% 100%;
+  --accent-50: 145 65% 98%;
+  --accent-100: 145 65% 94%;
+  --accent-200: 145 65% 90%;
+  --accent-300: 145 65% 80%;
+  --accent-400: 145 65% 60%;
+  --accent-500: 145 65% 42%;
+  --accent-600: 145 65% 32%;
+  --accent-700: 145 65% 22%;
+  --accent-800: 145 65% 17%;
+  --accent-900: 145 65% 12%;
+  
+  /* System Colors */
+  --success: 145 65% 42%;
+  --success-foreground: 0 0% 100%;
+  --success-muted: 145 65% 90%;
+  
+  --warning: 45 100% 50%;
+  --warning-foreground: 0 0% 0%;
+  --warning-muted: 45 100% 90%;
+  
+  --error: 0 84% 60%;
+  --error-foreground: 0 0% 100%;
+  --error-muted: 0 84% 90%;
+  
+  --info: 204 70% 53%;
+  --info-foreground: 0 0% 100%;
+  --info-muted: 204 70% 90%;
+  
+  /* Surface Colors - Light gray from #ecf0f1 */
+  --surface: 192 15% 94%;
+  --surface-foreground: 210 30% 20%;
+  --surface-muted: 192 15% 90%;
+  
+  --background: 0 0% 100%;
+  --foreground: 210 30% 20%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 210 30% 20%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 30% 20%;
+  
+  --muted: 210 20% 96%;
+  --muted-foreground: 210 30% 45%;
+  
+  /* System Variables */
+  --border: 210 20% 90%;
+  --input: var(--border);
+  --ring: var(--primary);
+}
+
+.dark {
+  /* Dark mode - Dark blue from #34495e */
+  --background: 210 30% 10%;
+  --foreground: 192 15% 94%;
+  
+  --card: 210 30% 13%;
+  --card-foreground: 192 15% 94%;
+  
+  --popover: 210 30% 13%;
+  --popover-foreground: 192 15% 94%;
+  
+  --primary: 210 30% 40%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 204 70% 63%;
+  --secondary-foreground: 0 0% 0%;
+  
+  --muted: 210 30% 20%;
+  --muted-foreground: 210 20% 70%;
+  
+  --accent: 145 65% 52%;
+  --accent-foreground: 0 0% 0%;
+  
+  --border: 210 30% 25%;
+  --input: 210 30% 25%;
+  --ring: 204 70% 63%;
+  
+  /* Dark Mode System Colors */
+  --success: 145 65% 52%;
+  --warning: 45 100% 60%;
+  --error: 0 84% 70%;
+  --info: 204 70% 63%;
+  
+  --surface: 210 30% 15%;
+  --surface-foreground: 192 15% 94%;
+  --surface-muted: 210 30% 20%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply px-4 py-2 text-foreground hover:text-primary transition-colors duration-200;
+  }
+  
+  .nav-link-active {
+    @apply text-primary font-medium;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+    disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-600;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary-600;
+  }
+  
+  .btn-outline {
+    @apply border border-input hover:bg-accent hover:text-accent-foreground;
+  }
+  
+  .card {
+    @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+  }
+  
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
+  }
+  
+  .card-title {
+    @apply text-2xl font-semibold leading-none tracking-tight;
+  }
+  
+  .card-description {
+    @apply text-sm text-muted-foreground;
+  }
+  
+  .card-content {
+    @apply p-6 pt-0;
+  }
+  
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
+  }
+  
+  .code-block {
+    @apply bg-surface text-surface-foreground p-4 rounded-code font-mono text-sm shadow-code overflow-x-auto;
+  }
+  
+  .section-heading {
+    @apply text-3xl font-bold mb-6 text-foreground border-b border-border pb-2;
+  }
+  
+  .skill-badge {
+    @apply bg-muted text-foreground px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .project-card {
+    @apply border border-border rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .project-card-image {
+    @apply w-full h-48 object-cover;
+  }
+  
+  .project-card-content {
+    @apply p-4;
+  }
+  
+  .project-card-title {
+    @apply text-xl font-semibold mb-2;
+  }
+  
+  .project-card-description {
+    @apply text-muted-foreground text-sm;
+  }
+  
+  .project-card-tech {
+    @apply flex flex-wrap gap-2 mt-4;
+  }
+}
+
+@layer utilities {
+  .code-animation {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .code-animation::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, 
+      rgba(var(--primary), 0.05) 0%, 
+      rgba(var(--secondary), 0.05) 100%);
+    transform: translateY(-100%);
+    animation: code-flow 8s ease-in-out infinite;
+  }
+}
